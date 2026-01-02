@@ -1,0 +1,81 @@
+Hashing in basic words is a technique whih helps you in pre sorting certain elements and the fetch them whenever required
+    - number hashing-
+        - what?- to give the occurences of a target number in a given integer array
+        - how?- brute force is to initialize a cnt variable and then to iterate over the array and increase the cnt when target is found. not optimal
+        - hashing way- initialize a hash array in which the number stored at 0th index will denote the number of occurences of number 0 in given array, similar for all the numbers
+        - int main(){
+            int n;
+            cin>>n;
+            int arr[n];
+            for(int i=0; i<n; i++){
+                cin>>arr[i];
+            }
+
+            //precompute
+            int hash[13]={0};
+            for(inti=0; i<n; i++){
+                hash[arr[i]] +=1;
+            }
+
+            int q;
+            cin>>q;
+            while(q--){
+                int num;
+                cin>>num;
+                cout<<hash[num];
+            }
+            return 0;
+        }
+    - REMEMBER- the maximum size of an integer array inside the main function can only be 10^6. outside the main function, it can be 10^7.
+
+    - character hashing- 
+        - what?- to give the occurences of a target character in a given string 
+        - brute way isnt optimal, so we go the hashing way
+        - int main(){
+            string s;
+            cin >> s;
+
+            //precompute
+            int hash[256] ={0};
+            for(int i=0l i<s.size(); i++){
+                hash[s[i]]++;
+            }
+
+            //fetch
+            int q;
+            cin>>q;
+            while(q--){
+                char c;
+                cin>>c;
+                cout<<hash[c]<<endl;
+            }
+            return 0;
+        }
+
+    - above are the examples of array hashing, where you use an array to perform hashing
+    - using an array may not be optimal in terms of space, as you also have to create space for elements who dont exist
+    - therefore we can also do map hashing, where the elements of the given array are used as key of the map, and their occurences beocme the value of the key
+    - map hashing
+        int main(){
+            int n;
+            cin>>n;
+            int arr[n];
+            map<int, int>mpp; //for char hashing use map<char, int>
+
+            //precompute 
+
+            for(int i=0; i<n; i++){
+                cin>>arr[i];
+                mpp[arr[i]]++;
+            }
+
+            //fetch
+            int q;
+            cin>>q;
+            while(q--){
+                int number;
+                cin>>number;
+                cout<<mpp[number];
+            }
+            return 0;
+        }
