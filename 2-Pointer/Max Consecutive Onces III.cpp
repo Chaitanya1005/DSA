@@ -17,9 +17,6 @@ public:
                 maxlen=max(maxlen, len);
             }
             r++;
-
-            // cout<<i<<" "<<l<<" "<<r<<" "<<len<<" "<<maxlen<<endl;
-
         }
         return maxlen;
     }
